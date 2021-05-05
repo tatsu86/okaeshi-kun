@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Celebrater;
+use App\Celebrater;
 
 class CelebraterController extends Controller
 {
@@ -15,7 +15,7 @@ class CelebraterController extends Controller
 
     public function detail(Request $request)
     {
-        // $celebrater = Celebrater::all();
+        $celebrater = new Celebrater();
 
         // if (isset($request->id)) {
         //     //新規登録
