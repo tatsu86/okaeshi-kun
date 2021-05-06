@@ -30,7 +30,7 @@ Route::delete('event/delete', 'EventController@delete')->name('event.delte');
 Route::get('celebrater/list', 'CelebraterController@index')->name('celebrater.list');
 Route::get('celebrater/detail', 'CelebraterController@detail')->name('celebrater.detail');
 Route::post('celebrater/save', 'CelebraterController@save')->name('celebrater.save');
-Route::delete('celebrater/delete', 'CelebraterController@delete')->name('celebrater.delte');
+Route::delete('celebrater/delete', 'CelebraterController@delete')->name('celebrater.delete');
 
 //祝い内容
 Route::get('celebration/list', 'CelebrationController@index')->name('celebration.list');
@@ -40,3 +40,7 @@ Route::delete('celebration/delete', 'CelebrationController@delete')->name('celeb
 
 //ヘルプ
 Route::get('help/list', 'HelpController@index')->name('help.list');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

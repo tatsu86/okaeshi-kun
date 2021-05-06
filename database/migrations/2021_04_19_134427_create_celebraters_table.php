@@ -17,14 +17,14 @@ class CreateCelebratersTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('name');
-            $table->string('gender');
-            $table->string('relationship');
-            $table->string('postal_code1');
-            $table->string('postal_code2');
-            $table->string('address');
-            $table->string('tel');
-            $table->string('email');
-            $table->string('memo');
+            $table->string('gender')->nullable();
+            $table->string('relationship')->nullable();
+            $table->string('postal_code1')->nullable();
+            $table->string('postal_code2')->nullable();
+            $table->string('address')->nullable();
+            $table->string('tel')->nullable();
+            $table->string('email')->nullable();
+            $table->string('memo')->nullable();
             $table->timestamps();
         });
     }

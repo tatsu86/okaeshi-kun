@@ -1,2 +1,24 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//確認用モーダル
+.alertModal {
+  width: 50rem;
+  height: auto;
+  text-align: center;
+  top: 1rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}

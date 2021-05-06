@@ -1,7 +1,7 @@
 @extends('./_layouts.parent')
 @section('content')
 
-<h1>祝ってくれた人</h1>
+<h1>Celebraters</h1>
 
 <div class="container ops-main">
   <div class="row">
@@ -20,12 +20,42 @@
   </div>
 </div>
 
+<div>
+
+</div class="row">
+  <div class="col-md-11 col-md-offset-1">
+    <table class="table text-center">
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">名前</th>
+        <th class="text-center">性別</th>
+        <th class="text-center">関係性</th>
+        <th class="text-center">編集</th>
+      </tr>
+      @foreach($celebraters as $celebrater)
+      <tr>
+        <td>{{ $celebrater->id }}</td>
+        <td>{{ $celebrater->name }}</td>
+        <td>{{ $celebrater->gender }}</td>
+        <td>{{ $celebrater->relationship }}</td>
+        <td>
+          {{-- <button class="btn btn-secondary">編集</button> --}}
+          <a href="{{ route('celebrater.detail') }}?id={{ $celebrater->id }}" class="btn btn-secondary">編集</a>
+        </td>
+      </tr>
+      @endforeach
+    </table>
+  </div>
 <script>
   function createCelebrater() {
     // 新規登録画面表示
     // +TODO:URLにパラメータが表示されないようにする
     document.frmSearch.action = "{{ route('celebrater.detail') }}";
     document.frmSearch.submit();
+  }
+
+  function editCelebrater($id) {
+
   }
 </script>
 

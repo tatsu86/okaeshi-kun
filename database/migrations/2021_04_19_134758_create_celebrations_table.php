@@ -18,10 +18,10 @@ class CreateCelebrationsTable extends Migration
             $table->integer('event_id');
             $table->integer('celebrater_id');
             $table->boolean('is_return');
-            $table->string('return_detail');
-            $table->integer('money');
-            $table->string('other_gift');
-            $table->string('memo');
+            $table->string('return_detail')->nullable();
+            $table->integer('money')->nullable();
+            $table->string('other_gift')->nullable();
+            $table->string('memo')->nullable();
             $table->timestamps();
         });
     }
