@@ -5,27 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Celebrater;
+use App\Http\Requests\CelebraterRequest;
 
 class CelebraterController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $celebraters = Celebrater::query()
-            ->get();
+        $celebraters = Celebrater::query();
+
+        if (!empty($request->name)) {
+            $celebraters->where('name', 'like', "%{$request->name}%");
+        }
+
+        //+TODO:検索項目を追加する
+
+
+        $celebraters = $celebraters->get();
+
         return view('celebrater.index')->with([
             'celebraters' => $celebraters,
+            'name' => $request->name,
+            // 'gender' => $request->gender,
         ]);
     }
 
     public function detail(Request $request)
     {
-        // logger($request);
-
         if (!isset($request->id)) {
             //新規登録
             $celebrater = new Celebrater();
-
-            logger($celebrater);
 
             return view('celebrater.detail')->with([
                 'celebrater' => $celebrater,
@@ -40,18 +48,16 @@ class CelebraterController extends Controller
         }
     }
 
-    public function save(Request $request)
+    public function save(CelebraterRequest $request)
     {
         logger($request);
 
         if (empty($request->id)) {
             //新規登録
             $celebrater = new Celebrater();
-
-            logger($celebrater);
         } else {
             //編集
-            $celebrater = Celebrater::find($request->id);
+            $celebrater = Celebrater::findOrFail($request->id);
         }
 
         //+TODO:ログインIDをuser_idに保存する
@@ -59,6 +65,13 @@ class CelebraterController extends Controller
         $celebrater->name = $request->name;
         $celebrater->relationship = $request->relationship;
         $celebrater->gender = $request->gender;
+        $celebrater->postal_code1 = $request->postal_code1;
+        $celebrater->postal_code2 = $request->postal_code2;
+        $celebrater->address = $request->address;
+        $celebrater->tel = $request->tel;
+        $celebrater->email = $request->email;
+        $celebrater->memo = $request->memo;
+
         $celebrater->save();
 
         // //+TODO:ログインIDをuser_idに保存する
@@ -70,7 +83,7 @@ class CelebraterController extends Controller
         //     ]
         // );
 
-        return redirect(route('celebrater.list'));
+        return redirect(route('celebrater.list'))->withInput();
     }
 
     public function delete(Request $request)

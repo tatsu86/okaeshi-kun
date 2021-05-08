@@ -7,12 +7,46 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//width
+.width-6 {
+  width: 6rem;
+}
+
+.width-12 {
+  width: 12rem;
+}
+
+//height
+.height-7 {
+  height: 7px;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.white {
+  color: white;
+}
+
 //確認用モーダル
 .alertModal {
   width: 50rem;
   height: auto;
   text-align: center;
   top: 1rem;
+}
+
+//フッター
+.detail-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #00508E;
+  padding: 0.75rem 1.25rem;
+  color: #FFFFFF;
 }
 
 .relative {
