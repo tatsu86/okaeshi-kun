@@ -10942,12 +10942,27 @@ a.text-dark:focus {
   }
 }
 
+.simple a:link,
+.simple a:visited,
+.simple a:hover,
+.simple a:active {
+  color: black;
+}
+
+.simple a {
+  text-decoration: none;
+}
+
 .width-6 {
   width: 6rem;
 }
 
 .width-12 {
   width: 12rem;
+}
+
+.w-45 {
+  width: 45%;
 }
 
 .height-7 {

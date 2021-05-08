@@ -7,6 +7,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.simple {
+  a:link, a:visited, a:hover, a:active {
+    color: black;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
 //width
 .width-6 {
   width: 6rem;
@@ -14,6 +23,10 @@
 
 .width-12 {
   width: 12rem;
+}
+
+.w-45 {
+  width: 45%;
 }
 
 //height
