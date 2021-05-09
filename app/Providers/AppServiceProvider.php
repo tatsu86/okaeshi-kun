@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //Herokuのインデックス用文字列長の設定
-        Schema::defaultStringLength(191);
+        // Schema::defaultStringLength(191);
     }
 }
