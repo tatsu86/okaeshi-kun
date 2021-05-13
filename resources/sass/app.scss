@@ -7,6 +7,22 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #f8fafc;
+}
+
+@for $i from 1 through 120 {
+  .width-#{$i} {width: 10px * $i !important}
+  .height-#{$i} {height: 10px * $i !important}
+  .min-width-#{$i} {min-width: 10px * $i !important}
+  .min-height-#{$i} {min-height: 10px * $i !important}
+  .max-width-#{$i} {max-width: 10px * $i !important}
+  .max-height-#{$i} {max-height: 10px * $i !important}
+}
+
+
 .simple {
   a:link, a:visited, a:hover, a:active {
     color: black;
@@ -16,23 +32,23 @@
   }
 }
 
-//width
-.width-6 {
-  width: 6rem;
-}
+// //width
+// .width-6 {
+//   width: 6rem;
+// }
 
-.width-12 {
-  width: 12rem;
-}
+// .width-12 {
+//   width: 12rem;
+// }
 
-.w-45 {
-  width: 45%;
-}
+// .w-45 {
+//   width: 45%;
+// }
 
-//height
-.height-7 {
-  height: 7px;
-}
+// //height
+// .height-7 {
+//   height: 4rem;
+// }
 
 .float-right {
   float: right;

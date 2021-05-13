@@ -7,6 +7,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://kit.fontawesome.com/c40dc7da13.js" crossorigin="anonymous"></script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
   <body>
 

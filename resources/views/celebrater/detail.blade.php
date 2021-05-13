@@ -28,14 +28,14 @@
       </div>
       <div class="form-group">
         <label>性別</label>
-        {{ Form::select('gender', ['男性' => '男性', '女性' => '女性'], old('gender', $celebrater->gender), ['class' => 'form-control width-12', 'placeholder' => '選択してください']) }}
+        {{ Form::select('gender', ['男性' => '男性', '女性' => '女性'], old('gender', $celebrater->gender), ['class' => 'form-control width-16', 'placeholder' => '選択してください']) }}
       </div>
       <div class="form-group">
         <label>郵便場号</label>
         <div class="form-inline">
-          <input type="tel" name="postal_code1" class="form-control" value="{{ old('postal_code1', $celebrater->postal_code1) }}" placeholder="000" maxlength="3">
+          <input type="tel" name="postal_code1" class="form-control width-6" value="{{ old('postal_code1', $celebrater->postal_code1) }}" placeholder="000" maxlength="3">
           　ー　
-          <input type="tel" name="postal_code2" class="form-control" value="{{ old('postal_code2', $celebrater->postal_code2) }}" placeholder="0000" maxlength="4">
+          <input type="tel" name="postal_code2" class="form-control width-8" value="{{ old('postal_code2', $celebrater->postal_code2) }}" placeholder="0000" maxlength="4">
         </div>
       </div>
       <div class="form-group">
@@ -67,7 +67,8 @@
     @if(!empty($celebrater->id))
     <button type="button" class="btn btn-danger width-6" data-toggle="modal" data-target="#deleteModal" onclick="showDeleteModal()">削除</button>
     @endif
-    <button type="button" class="btn btn-primary width-6 float-right" onclick="saveDetail();">保存</button>
+    {{-- +TODO:保存ボタンを右寄せにする --}}
+    <button type="button" class="btn btn-primary width-6 " onclick="saveDetail();">保存</button>
   </div>
 </div>
 
