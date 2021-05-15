@@ -45,11 +45,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" style="color:white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" style="color:white" href="{{ route('login') }}">ログイン</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}" style="color:white">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="color:white">アカウント登録</a>
                                 </li>
                             @endif
                         @else
@@ -69,7 +69,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        ログアウト
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

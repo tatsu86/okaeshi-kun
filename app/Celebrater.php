@@ -2,15 +2,16 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Celebrater extends Model
 {
-    // protected $fillable = [
-    //     'id',
-    //     'user_id',
-    //     'name',
-    //     'relationship',
-    //     'gender',
-    // ];
+    protected static function booted()
+    {
+        static::addGlobalScope('celebrater', function (Builder $builder) {
+            $builder->where('user_id', Auth::id());
+        });
+    }
 }

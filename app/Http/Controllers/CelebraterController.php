@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Celebrater;
 use App\Http\Requests\CelebraterRequest;
+use Auth;
 
 class CelebraterController extends Controller
 {
@@ -50,18 +51,15 @@ class CelebraterController extends Controller
 
     public function save(CelebraterRequest $request)
     {
-        logger($request);
-
         if (empty($request->id)) {
             //新規登録
             $celebrater = new Celebrater();
+            $celebrater->user_id = Auth::id();
         } else {
             //編集
             $celebrater = Celebrater::findOrFail($request->id);
         }
 
-        //+TODO:ログインIDをuser_idに保存する
-        $celebrater->user_id = 1;
         $celebrater->name = $request->name;
         $celebrater->relationship = $request->relationship;
         $celebrater->gender = $request->gender;

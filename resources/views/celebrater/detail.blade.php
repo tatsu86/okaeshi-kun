@@ -17,7 +17,7 @@
     <form name="frmMain" action="{{ route('celebrater.save') }}" method="post">
       @csrf
       <input type="hidden" name="id" value="{{ old('id', $celebrater->id) }}">
-      <input type="hidden" name="user_id" value="1">
+      <input type="hidden" name="user_id" value="{{ $celebrater->user_id }}">
 
       <div class="form-group">
         <label>名前</label>
