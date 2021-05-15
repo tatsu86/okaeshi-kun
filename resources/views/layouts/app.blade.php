@@ -7,10 +7,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'おかえしくん') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <script src="https://kit.fontawesome.com/c40dc7da13.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,10 +23,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- +TODO:classにshadow-smを入れても良いかも --}}
+        <nav class="navbar navbar-expand-lg navbar-light white" style="background-color:#00508E;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <i class="fas fa-gifts"></i>
+                <a class="navbar-brand" style="color:white;" href="{{ url('/') }}">
+                    おかえしくん
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,16 +45,23 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" style="color:white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}" style="color:white">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="btn btn-light" href="{{ route('event.list') }}">Events</a>
+                            </li>
+                            <li class="nav-item ml-2">
+                                <a class="btn btn-light" href="{{ route('celebrater.list') }}">Celebraters</a>
+                            </li>
+
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 

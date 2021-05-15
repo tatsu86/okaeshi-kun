@@ -1,7 +1,7 @@
-@extends('./_layouts.parent')
+@extends('layouts.app')
+{{-- @extends('./_layouts.parent') --}}
 
 @section('content')
-
 <div class="container mt-2">
   <div class="row simple">
     <div class="col">
@@ -29,7 +29,6 @@
         </div>
       </a>
     </div>
-
     <div class="col">
       <a class="card mb-2" href="{{ route('help.list') }}">
         <div class="card-body text-center">
