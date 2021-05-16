@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container ops-main">
+
+
   <h1>Celebraters</h1>
 
   <div class="row">
@@ -20,7 +22,6 @@
   <div class="col-md-11 col-md-offset-1 mt-2">
     <table class="table text-center">
       <tr>
-        <th class="text-center">ID</th>
         <th class="text-center">名前</th>
         <th class="text-center">性別</th>
         <th class="text-center">関係性</th>
@@ -29,7 +30,6 @@
       </tr>
       @foreach($celebraters as $celebrater)
       <tr>
-        <td>{{ $celebrater->id }}</td>
         <td>{{ $celebrater->name }}</td>
         <td>{{ $celebrater->gender }}</td>
         <td>{{ $celebrater->relationship }}</td>
@@ -51,10 +51,6 @@
     // +TODO:URLにパラメータが表示されないようにする
     document.frmSearch.action = "{{ route('celebrater.detail') }}";
     document.frmSearch.submit();
-  }
-
-  function editCelebrater($id) {
-
   }
 </script>
 

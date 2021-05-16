@@ -72,15 +72,6 @@ class CelebraterController extends Controller
 
         $celebrater->save();
 
-        // //+TODO:ログインIDをuser_idに保存する
-        // Celebrater::updateOrCreate(
-        //     ['id' => $request->id],
-        //     [
-        //         'name' => $request->name,
-        //         'user_id' => 1,
-        //     ]
-        // );
-
         return redirect(route('celebrater.list'))->withInput();
     }
 
