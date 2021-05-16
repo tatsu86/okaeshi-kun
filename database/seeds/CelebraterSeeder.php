@@ -12,13 +12,12 @@ class CelebraterSeeder extends Seeder
      */
     public function run()
     {
+        Celebrater::unguard();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
         DB::table('celebraters')->truncate();
 
-
         $celebraters = [];
-
-
-
         for ($i=1; $i <= 10; $i++) {
             $celebrater = [
                 'user_id' => '1',
@@ -33,6 +32,7 @@ class CelebraterSeeder extends Seeder
             Celebrater::create($celebrater);
         }
 
-
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Celebrater::reguard();
     }
 }

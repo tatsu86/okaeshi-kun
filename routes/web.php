@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('event/list', 'EventController@index')->name('event.list');
   Route::get('event/detail', 'EventController@detail')->name('event.detail');
   Route::post('event/save', 'EventController@save')->name('event.save');
-  Route::delete('event/delete', 'EventController@delete')->name('event.delte');
+  Route::delete('event/delete', 'EventController@delete')->name('event.delete');
 
   //祝ってくれ た人
   Route::get('celebrater/list', 'CelebraterController@index')->name('celebrater.list');
@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('celebration/list', 'CelebrationController@index')->name('celebration.list');
   Route::get('celebration/detail', 'CelebrationController@detail')->name('celebration.detail');
   Route::post('celebration/save', 'CelebrationController@save')->name('celebration.save');
-  Route::delete('celebration/delete', 'CelebrationController@delete')->name('celebration.delte');
+  Route::delete('celebration/delete', 'CelebrationController@delete')->name('celebration.delete');
 
   //ヘルプ
   Route::get('help/list', 'HelpController@index')->name('help.list');

@@ -14,4 +14,12 @@ class Celebrater extends Model
             $builder->where('user_id', Auth::id());
         });
     }
+
+    public function events()
+    {
+        return $this->belongsToMany('App\Celebrater',
+                                    'event_celebraters',
+                                    'celebrater_id',
+                                    'event_id');
+    }
 }

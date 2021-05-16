@@ -53,7 +53,7 @@
       </div>
       <div class="form-group">
         <label>メモ</label>
-        {{Form::textarea('memo', null, ['class' => 'form-control', 'placeholder' => 'メモ', 'rows' => '3'])}}
+        {{Form::textarea('memo', old('detail', $celebrater->memo), ['class' => 'form-control', 'placeholder' => 'メモ', 'rows' => '3'])}}
       </div>
       {{-- +TODO:オーバーレイのフッターにする --}}
 

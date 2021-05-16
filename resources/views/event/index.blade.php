@@ -20,14 +20,12 @@
   <div class="col-md-11 col-md-offset-1 mt-2">
     <table class="table text-center">
       <tr>
-        <th class="text-center">ID</th>
         <th class="text-center">名前</th>
         <th class="text-center">詳細</th>
         <th class="text-center">編集</th>
       </tr>
       @foreach($events as $event)
       <tr>
-        <td>{{ $event->id }}</td>
         <td>{{ $event->name }}</td>
         <td>{{ $event->detail }}</td>
         <td>
