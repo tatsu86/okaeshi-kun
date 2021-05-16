@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Celebrater;
 use App\Http\Requests\CelebraterRequest;
 use Auth;
+use Toastr;
 
 class CelebraterController extends Controller
 {
@@ -71,6 +72,7 @@ class CelebraterController extends Controller
         $celebrater->memo = $request->memo;
 
         $celebrater->save();
+        Toastr::success('Celebraterを保存しました', '', ["positionClass" => "toast-top-center", "closeButton" => true]);
 
         return redirect(route('celebrater.list'))->withInput();
     }
@@ -79,6 +81,7 @@ class CelebraterController extends Controller
     {
         $celebrater = Celebrater::findOrFail($request->delete_id);
         $celebrater->delete();
+        Toastr::warning('Celebraterを削除しました', '', ["positionClass" => "toast-top-center", "closeButton" => true]);
 
         return redirect(route('celebrater.list'));
     }
