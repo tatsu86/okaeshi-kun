@@ -27,11 +27,55 @@
         <label>詳細</label>
         {{Form::textarea('detail', old('detail', $event->detail), ['class' => 'form-control', 'placeholder' => '詳細', 'rows' => '3'])}}
       </div>
-
-
     </form>
   </div>
+
+<!-- Extra large modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
+
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      @include('event.celebraterList')
+    </div>
+  </div>
 </div>
+
+  <div class="card">
+    <div class="card-header">
+      Celebraters
+    </div>
+    <div class="cord-body">
+      <div class="">
+        <table class="table text-center">
+          <tr>
+            <th class="text-center">名前</th>
+            <th class="text-center">性別</th>
+            <th class="text-center">関係性</th>
+            <th class="text-center">メモ</th>
+            <th class="text-center">編集</th>
+          </tr>
+          @foreach($event->celebraters as $celebrater)
+          <tr>
+            <td>{{ $celebrater->name }}</td>
+            <td>{{ $celebrater->gender }}</td>
+            <td>{{ $celebrater->relationship }}</td>
+            <td>{{ $celebrater->memo }}</td>
+            <td>
+              {{-- <button class="btn btn-secondary">編集</button> --}}
+              <a href="{{ route('celebrater.detail') }}?id={{ $celebrater->id }}" class="btn btn-secondary">編集</a>
+            </td>
+          </tr>
+          @endforeach
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <div class="mt-2 height-7">
   <div class="fixed-buttom detail-footer">

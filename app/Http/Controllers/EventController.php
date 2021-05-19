@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
+use App\Celebrater;
 use Auth;
 use Toastr;
 
@@ -78,5 +79,14 @@ class EventController extends Controller
         Toastr::warning('Eventを削除しました', '', ["positionClass" => "toast-top-center", "closeButton" => true]);
 
         return redirect(route('event.list'));
+    }
+
+    public function celebraterList()
+    {
+        $celebraters = Celebrater::all();
+
+        return view('event.celebraterList')->with([
+            'celebraters' => $celebraters,
+        ]);
     }
 }
