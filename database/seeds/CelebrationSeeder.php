@@ -3,9 +3,9 @@
 use Illuminate\Database\Seeder;
 use App\Event;
 use App\Celebrater;
-use App\EventCelebrater;
+use App\Celebration;
 
-class EventCelebraterSeeder extends Seeder
+class CelebrationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,14 +20,18 @@ class EventCelebraterSeeder extends Seeder
         $events = Event::withoutGlobalScopes()->get();
         $celebraters = Celebrater::withoutGlobalScopes()->get();
 
+        $i = 1;
         foreach ($events as $event) {
             foreach ($celebraters as $celebrater) {
                 $row = [
                     'event_id' => $event->id,
                     'celebrater_id' => $celebrater->id,
+                    'memo' => 'メモ' . $i,
                 ];
 
-                EventCelebrater::create($row);
+                Celebration::create($row);
+
+                $i += 1;
             }
         }
 

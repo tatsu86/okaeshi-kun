@@ -15,14 +15,24 @@ class CreateCelebrationsTable extends Migration
     {
         Schema::create('celebrations', function (Blueprint $table) {
             $table->id();
-            $table->integer('event_id');
-            $table->integer('celebrater_id');
-            $table->boolean('is_return');
-            $table->string('return_detail')->nullable();
+            $table->unsignedBigInteger('event_id');
+            $table->unsignedBigInteger('celebrater_id');
             $table->integer('money')->nullable();
-            $table->string('other_gift')->nullable();
             $table->string('memo')->nullable();
+            $table->boolean('is_return')->default(false);
+            $table->string('return_detail')->nullable();
             $table->timestamps();
+
+            $table->foreign('event_id')
+                ->references('id')
+                ->on('events')
+                ->onDelete('cascade');
+            $table->foreign('celebrater_id')
+                ->references('id')
+                ->on('celebraters')
+                ->onDelete('cascade');
+
+            $table->unique(['event_id', 'celebrater_id']);
         });
     }
 
