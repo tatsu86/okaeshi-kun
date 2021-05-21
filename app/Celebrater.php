@@ -18,7 +18,7 @@ class Celebrater extends Model
     public function events()
     {
         return $this->belongsToMany('App\Celebrater',
-                                    'event_celebraters',
+                                    'celebrations',
                                     'celebrater_id',
                                     'event_id');
     }
